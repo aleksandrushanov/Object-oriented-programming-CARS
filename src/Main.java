@@ -11,6 +11,5 @@ public class Main {
         System.out.println(cars2);
         System.out.println(cars3);
         System.out.println(cars4);
-
     }
 }
