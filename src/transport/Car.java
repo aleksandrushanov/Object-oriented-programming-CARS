@@ -1,12 +1,7 @@
 package transport;
 
-public class Car {
-    final private String brand;
-    final private String model;
+public class Car extends Transport {
     private double engineVolume;
-    private String color;
-    final private int year;
-    final private String country;
     private String transmission;
     final private String bodyType;
     private String registrationNumber;
@@ -37,21 +32,10 @@ public class Car {
             }
         }
 
-    public Car(String brand,String model,double engineVolume,String color,int year,
-               String country,String transmission,String bodyType, String registrationNumber,int numberOfSeats,boolean season, Key key) {
-        this.brand = brand;
-        this.model = model;
+    public Car(String brand,String model,double engineVolume,String color,int year,String country,int maxSpeed,
+               String transmission,String bodyType, String registrationNumber,int numberOfSeats,boolean season, Key key) {
+            super(brand,model,year,country,color,maxSpeed);
         setEngineVolume(engineVolume);
-        setColor(color);
-        if (year <= 0) {
-            this.year = 2000;
-        } else {
-            this.year = year;
-        }
-        if (country == null || country.isEmpty()) {
-            country = "default";
-        }
-        this.country = country;
         setTransmission(transmission);
         if (bodyType == null || bodyType.isEmpty()) {
             bodyType = "Седан";
@@ -65,14 +49,6 @@ public class Car {
         setKey(key);
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
     public double getEngineVolume() {
         return engineVolume;
     }
@@ -84,27 +60,6 @@ public class Car {
             this.engineVolume = engineVolume;
         }
     }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color == null || color.isEmpty()) {
-            this.color = "Белый";
-        }else{
-            this.color = color;
-        }
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
     public String getTransmission() {
         return transmission;
     }
@@ -167,16 +122,12 @@ public class Car {
     @Override
     public String toString() {
         return
-                "Бернед " + brand + '\'' +
-                ", Модель'" + model + '\'' +
-                ", Объём " + engineVolume +
-                ",  Цвет '" + color + '\'' +
-                ", Год: " + year +
-                ", Страна'" + country + '\'' +
-                ", Коробка передач'" + transmission + '\'' +
-                ", Тип кузова '" + bodyType + '\'' +
-                ", Регистрационный номер '" + registrationNumber + '\'' +
-                ", Количетсво сидений " + numberOfSeats + " , " +
-                        (season?"летняя":"зимняя") + " резина" +" , " + key;
+                super.toString() + ", " +
+                        ", Объём " + engineVolume +
+                        ", Коробка передач'" + transmission + '\'' +
+                        ", Тип кузова '" + bodyType + '\'' +
+                        ", Регистрационный номер '" + registrationNumber + '\'' +
+                        ", Количетсво сидений " + numberOfSeats + " , " +
+                        (season ? "летняя" : "зимняя") + " резина" + " , " + key;
     }
 }
