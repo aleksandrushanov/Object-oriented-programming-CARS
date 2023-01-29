@@ -1,15 +1,12 @@
 package transport;
 
-
-public class Bus extends Transport<DriverD> {
-
-    public Bus(String brand,
-               String model,
-               double engineVolume,
-               DriverD driver) {
+public class Trucks extends Transport<DriverC> {
+    public Trucks(String brand,
+                  String model,
+                  double engineVolume,
+                  DriverC driver) {
         super(brand, model, engineVolume, driver);
     }
-
 
     @Override
     public void start() {
@@ -18,18 +15,17 @@ public class Bus extends Transport<DriverD> {
 
     @Override
     public void stop() {
-        System.out.println(getBrand() + " закончил  движение");
+        System.out.println(getBrand() + " закончил движение");
     }
 
-    @Override
     public void pitStop() {
-        System.out.println("Пит-стоп автобуса " + getBrand());
+        System.out.println("Пит-стоп грузовой машины " + getBrand());
     }
 
     @Override
     public void bestCircle() {
         int minTime = 10;
-        int maxTime = 30;
+        int maxTime = 15;
         int time = (int) ((Math.random()*((maxTime-minTime)+1))+minTime);
         System.out.println("Лучшее время : "  + time + " минут ");
     }

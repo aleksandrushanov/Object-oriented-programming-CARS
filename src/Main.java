@@ -1,28 +1,49 @@
-import transport.Bus;
-import transport.Car;
+import transport.*;
+
 
 public class Main {
     public static void main(String[] args) {
-        Car lada = new Car("Lada", "Granta", 0, "желтого цвета", 2015, "Россия",100,"Механика","Седан","к976мм134",5,true,new Car.Key(true,false));
-        System.out.println(lada);
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, "Черный", 2020, "Германия",210,"автомат","седан","т356ок54",5,true,null);
-        System.out.println(audi);
-        Car bmw = new Car("BMW", "Z8",3.0,"Черный",2021,"Германия",240,"автомат","родстер","в256кк01",2,false,new Car.Key(false,true));
-        System.out.println(bmw);
-        Car kia = new Car("KIA", "Sportage 4-го поколения",2.4,"Красный",2018,"Южная Корея ",190,"автомат","кроссовер","н856см154",5,true,new Car.Key(false,true));
-        System.out.println(kia);
-        Car hyundai = new Car("Hyundai","Avante",1.6,"Оранжевый",2016,"Южная Корея",150,"автомат","Седан","к504мм134",5,false,new Car.Key(true,true));
-        System.out.println(hyundai);
-        hyundai.changingTires(7);
-        System.out.println(hyundai);
 
-        System.out.println(" ");
 
-        Bus man = new Bus("man", "Lion’s Coach", 2005, "Germany", "white", 110);
+        Bus man = new Bus("man", "Lion’s Coach",4.2, new DriverD("Александ Викторович ",true, 5));
         System.out.println(man);
-        Bus volvo = new Bus("Volvo", "B12", 2000, "Sweden", "black", 120);
+        Bus volvo = new Bus("Volvo", "B12", 3.6,new DriverD("Виктор Викторович ",true, 6));
         System.out.println(volvo);
-        Bus nefaz = new Bus("НефАЗ", "5299", 1995, "Russia", "Red", 80);
+        Bus nefaz = new Bus("НефАЗ", "5299",5.0,new DriverD("Андрей Викторович ",true, 4));
         System.out.println(nefaz);
+        Bus ikarus = new Bus("Ikarus", "256", 3.2,new DriverD("Виталий Викторович ",true, 9));
+        System.out.println(ikarus);
+        nefaz.start();
+        ikarus.bestCircle();
+        volvo.maxSpeed();
+
+        Car audi = new Car("audi", "TT", 5.0,new DriverB("Андрей Андреевич",true,5));
+        System.out.println(audi);
+        Car bmw = new Car("Bmw", "X5", 4.4,new DriverB("Виктор Андреевич",true,4));
+        System.out.println(bmw);
+        Car nissan = new Car("Nissan", "Skyline", 2.5,new DriverB("Ярослав Андреевич",true,6));
+        System.out.println(nissan);
+        Car toyota = new Car("Toyota", "Supra", 3.0,new DriverB("Артём Андреевич",true,8));
+        System.out.println(toyota);
+        toyota.start();
+        nissan.stop();
+        toyota.maxSpeed();
+
+        Trucks freightliner = new Trucks("Freightliner", "Cascadia", 15.6,new DriverC("Анатолий Анатольевич",true,5));
+        System.out.println(freightliner);
+        Trucks peterbilt = new Trucks("Peterbilt", "587", 10.9,new DriverC("Аркадий Анатольевич",true,4));
+        System.out.println(peterbilt);
+        Trucks westernStar = new Trucks("Western Star", "4900 EX", 8.0,new DriverC("Вениамин Анатольевич",true,9));
+        System.out.println(westernStar);
+        Trucks mack = new Trucks("Mack", "Programm", 16.0,new DriverC("Дмитрий Анатольевич",true,12));
+        System.out.println(mack);
+        mack.bestCircle();
+
+        printInfo(audi);
+        printInfo(nefaz);
+        printInfo(westernStar);
+    }
+    private static void printInfo(Transport transport) {
+        System.out.println("водитель "+ transport.getDriver().getFio() + " управляет автомобилем "+ transport.getBrand() + " и будет участвовать в заезде");
     }
 }
