@@ -1,11 +1,27 @@
 package transport;
 
 public class Trucks extends Transport<DriverC> {
+    private final  LoadCapacity loadCapacity;
+
     public Trucks(String brand,
                   String model,
                   double engineVolume,
-                  DriverC driver) {
+                  DriverC driver, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume, driver);
+        this.loadCapacity = loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    @Override
+    public void printType() {
+        if (loadCapacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(loadCapacity);
+        }
     }
 
     @Override
@@ -37,5 +53,9 @@ public class Trucks extends Transport<DriverC> {
         int speed= (int) ((Math.random()*((maxSpeed-minSpeed)+1))+minSpeed);
         System.out.println("Максимальная скорость автобуса " + speed + " км/ч");
 
+    }
+    public String toString() {
+        return "Бернед " + getBrand() + '\'' +
+                ", Модель'" + getModel() + '\'' + ", Объём двигателя = " + getEngineVolume() + " Управляет автомобилем " + getDriver() + " " + getLoadCapacity();
     }
 }

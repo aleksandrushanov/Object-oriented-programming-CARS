@@ -1,4 +1,7 @@
 package transport;
+
+import java.util.Objects;
+
 public abstract class Transport<D extends Driver> implements Competing {
     final private String brand;
 
@@ -22,6 +25,7 @@ public abstract class Transport<D extends Driver> implements Competing {
         setEngineVolume(engineVolume);
         setDriver(driver);
     }
+    public abstract void printType();
     public String getBrand() {
         return brand;
     }
@@ -55,10 +59,18 @@ public abstract class Transport<D extends Driver> implements Competing {
 
 
     @Override
-    public String toString() {
-        return "Бернед " + brand + '\'' +
-                ", Модель'" + model + '\'' + ", Объём двигателя = " + engineVolume + " Управляет автомобилем " + driver;
+    public abstract String toString();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver);
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, driver);
+    }
 }

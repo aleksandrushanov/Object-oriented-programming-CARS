@@ -2,14 +2,27 @@ package transport;
 
 
 public class Bus extends Transport<DriverD> {
-
+    private final TypeCapacity capacity;
     public Bus(String brand,
                String model,
                double engineVolume,
-               DriverD driver) {
+               DriverD driver, TypeCapacity capacity) {
         super(brand, model, engineVolume, driver);
+        this.capacity = capacity;
     }
 
+    @Override
+    public void printType() {
+        if (capacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(capacity);
+        }
+    }
+
+    public TypeCapacity getCapacity() {
+        return capacity;
+    }
 
     @Override
     public void start() {
@@ -41,5 +54,9 @@ public class Bus extends Transport<DriverD> {
         int speed= (int) ((Math.random()*((maxSpeed-minSpeed)+1))+minSpeed);
         System.out.println("Максимальная скорость автобуса " + speed + " км/ч");
 
+    }
+    public String toString() {
+        return "Бернед " + getBrand() + '\'' +
+                ", Модель'" + getModel() + '\'' + ", Объём двигателя = " + getEngineVolume() + " Управляет автомобилем " + getDriver() + " "+ getCapacity();
     }
 }
