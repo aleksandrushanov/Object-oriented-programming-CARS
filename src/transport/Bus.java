@@ -1,6 +1,8 @@
 package transport;
 
 
+import Driver.DriverD;
+
 public class Bus extends Transport<DriverD> {
     private final TypeCapacity capacity;
     public Bus(String brand,
@@ -32,6 +34,11 @@ public class Bus extends Transport<DriverD> {
     @Override
     public void stop() {
         System.out.println(getBrand() + " закончил  движение");
+    }
+
+    @Override
+    public void passDiagnostics() {
+        throw new UnsupportedOperationException("Автобус " + getBrand() + " " + getModel() + " не может пройти диагностику");
     }
 
     @Override

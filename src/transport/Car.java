@@ -1,5 +1,7 @@
 package transport;
 
+import Driver.DriverB;
+
 public class Car extends Transport<DriverB>  {
     private final TypeBodyCar typeBodyCar;
     public Car(String brand,
@@ -31,6 +33,11 @@ public class Car extends Transport<DriverB>  {
     @Override
     public void stop() {
         System.out.println(getBrand() + " закончил движение");
+    }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Автомобиль " + getBrand()+" " + getModel()+" проходит диагнностику ");
     }
 
     public void pitStop() {

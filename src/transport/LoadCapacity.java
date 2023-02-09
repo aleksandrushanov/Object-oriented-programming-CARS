@@ -21,12 +21,12 @@ public enum LoadCapacity {
 
     @Override
     public String toString() {
-        if (lowerBound == 0.0) {
-            return "Грузоподъемность до: " + getUpperBound() + " тонн.";
+        if (lowerBound == null) {
+            return "Грузоподъемность до: " + upperBound + " тонн.";
         } else if (upperBound == null) {
-            return "Грузоподъемность от: " + getLowerBound() + " тонн.";
+            return "Грузоподъемность от: " + lowerBound + " тонн.";
         } else {
-            return "Грузоподъемность от: " + getLowerBound() + " тонн, до " + getUpperBound() + " тонн";
+            return "Грузоподъемность от: " + lowerBound + " тонн, до " + upperBound + " тонн";
         }
 
     }

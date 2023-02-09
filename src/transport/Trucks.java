@@ -1,5 +1,7 @@
 package transport;
 
+import Driver.DriverC;
+
 public class Trucks extends Transport<DriverC> {
     private final  LoadCapacity loadCapacity;
 
@@ -32,6 +34,11 @@ public class Trucks extends Transport<DriverC> {
     @Override
     public void stop() {
         System.out.println(getBrand() + " закончил движение");
+    }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("грузовик " +getBrand() + " "+ getModel() + " проходит диагнностику ");
     }
 
     public void pitStop() {

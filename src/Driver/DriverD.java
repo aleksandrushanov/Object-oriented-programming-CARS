@@ -1,10 +1,11 @@
-package transport;
+package Driver;
 
-public class DriverC extends Driver{
-    public DriverC(String fio,
+public class DriverD extends Driver {
+
+    public DriverD(String fio,
                    boolean drivingLicense,
-                   int experience) {
-        super(fio, drivingLicense, experience);
+                   int experience,String rightsCategory) throws RightsVerificationException {
+        super(fio, drivingLicense, experience,rightsCategory);
     }
 
     @Override
@@ -21,4 +22,5 @@ public class DriverC extends Driver{
     public void refuelTheCar() {
         System.out.println("Водитель" + getFio() + " заправил авто");
     }
+
 }
