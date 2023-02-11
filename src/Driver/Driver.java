@@ -46,12 +46,10 @@ public abstract class Driver<D extends Transport> {
     }
 
     public void setRightsCategory(String rightsCategory) throws RightsVerificationException {
-        if (rightsCategory == null || rightsCategory.isEmpty() || rightsCategory.isBlank()) {
-            throw new RightsVerificationException("Необходимо указать тип прав!" + " " +getFio());
-        } else if (rightsCategory.equals("B") || rightsCategory.equals("C") || rightsCategory.equals("D")) {
+        if (rightsCategory.equals("B") || rightsCategory.equals("C") || rightsCategory.equals("D")) {
             this.rightsCategory = rightsCategory;
         } else {
-            throw new RightsVerificationException("Необходимо указать тип прав!" + " " +getFio());
+            throw new RightsVerificationException("Необходимо указать тип прав!" + getFio());
         }
     }
 

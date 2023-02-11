@@ -36,7 +36,7 @@ public class Bus extends Transport<DriverD> {
         System.out.println(getBrand() + " закончил  движение");
     }
 
-    @Override
+
     public void passDiagnostics() {
         throw new UnsupportedOperationException("Автобус " + getBrand() + " " + getModel() + " не может пройти диагностику");
     }

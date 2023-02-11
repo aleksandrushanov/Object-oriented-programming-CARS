@@ -35,7 +35,6 @@ public class Car extends Transport<DriverB>  {
         System.out.println(getBrand() + " закончил движение");
     }
 
-    @Override
     public void passDiagnostics() {
         System.out.println("Автомобиль " + getBrand()+" " + getModel()+" проходит диагнностику ");
     }
