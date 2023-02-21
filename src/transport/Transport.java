@@ -61,16 +61,16 @@ public abstract class Transport<D extends Driver> implements Competing {
 
     public abstract void passDiagnostics();
 
-    public static void passDiagnostics(Transport... transports) {
-        for (Transport transport : transports) {
-            try {
-                transport.passDiagnostics();
-            } catch (UnsupportedOperationException e) {
-                System.out.println("возникла ошибка");
-                System.out.println(e.getMessage());
-            }
-        }
-    }
+//    public static void passDiagnostics(Transport... transports) {
+//        for (Transport transport : transports) {
+//            try {
+//                transport.passDiagnostics();
+//            } catch (UnsupportedOperationException e) {
+//                System.out.println("возникла ошибка");
+//                System.out.println(e.getMessage());
+//            }
+//        }
+//    }
 
     @Override
     public abstract String toString();

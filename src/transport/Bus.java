@@ -37,7 +37,7 @@ public class Bus extends Transport<DriverD> {
     }
 
 
-    public void passDiagnostics() {
+    public void  passDiagnostics() {
         throw new UnsupportedOperationException("Автобус " + getBrand() + " " + getModel() + " не может пройти диагностику");
     }
 

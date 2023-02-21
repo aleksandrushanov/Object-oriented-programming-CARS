@@ -7,17 +7,18 @@ public class Main {
     public static void main(String[] args) throws RightsVerificationException {
 
 
-        Bus man = new Bus("man", "Lion’s Coach",4.2, new DriverD("Александ Викторович ",true, 5,"D"),null);
+        Transport man = new Bus("man", "Lion’s Coach",4.2, new DriverD("Александ Викторович ",true, 5,"D"),null);
         System.out.println(man);
-        Bus volvo = new Bus("Volvo", "B12", 3.6,new DriverD("Виктор Викторович ",true, 6,null),TypeCapacity.ESPECIALLY_BIG);
+        Transport volvo = new Bus("Volvo", "B12", 3.6,new DriverD("Виктор Викторович ",true, 6,null),TypeCapacity.ESPECIALLY_BIG);
         System.out.println(volvo);
-        Bus nefaz = new Bus("НефАЗ", "5299",5.0,new DriverD("Андрей Викторович ",true, 4,"D"),TypeCapacity.ESPECIALLY_SMALL);
+        Transport nefaz = new Bus("НефАЗ", "5299",5.0,new DriverD("Андрей Викторович ",true, 4,"D"),TypeCapacity.ESPECIALLY_SMALL);
         System.out.println(nefaz);
-        Bus ikarus = new Bus("Ikarus", "256", 3.2,new DriverD("Виталий Викторович ",true, 9,"D"),TypeCapacity.AVERAGE);
+        Transport ikarus = new Bus("Ikarus", "256", 3.2,new DriverD("Виталий Викторович ",true, 9,"D"),TypeCapacity.AVERAGE);
         System.out.println(ikarus);
         nefaz.start();
         ikarus.bestCircle();
         volvo.maxSpeed();
+        man.passDiagnostics();
 
         Car audi = new Car("audi", "TT", 5.0,new DriverB("Андрей Андреевич",true,5,null),TypeBodyCar.SEDAN);
         System.out.println(audi);
@@ -46,10 +47,9 @@ public class Main {
         man.printType();
         peterbilt.printType();
         audi.printType();
-        Transport.passDiagnostics(man,volvo,audi,bmw,peterbilt,nefaz,freightliner);
 
 
-        try {
+     /*   try {
             audi.getDriver().setRightsCategory("B");
         } catch (RightsVerificationException e) {
             System.out.println("Обаружеа ошибка");
@@ -60,7 +60,7 @@ public class Main {
         } catch (RightsVerificationException e) {
             System.out.println("Обаружена ошибка");
             System.out.println(e.getMessage());
-        }
+        }*/
 
 
     }
